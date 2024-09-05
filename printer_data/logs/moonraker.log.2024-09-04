@@ -1,0 +1,697 @@
+-------------------- Log Start | Wed Sep  4 00:16:33 2024 --------------------
+platform: Linux-5.16.17-sun50iw9-aarch64-with-glibc2.31
+data_path: /home/sovol/printer_data
+is_default_data_path: False
+config_file: /home/sovol/printer_data/config/moonraker.conf
+backup_config: /home/sovol/printer_data/config/.moonraker.conf.bkp
+startup_warnings: []
+verbose: False
+debug: False
+asyncio_debug: False
+is_backup_config: False
+is_python_package: False
+instance_uuid: ac606ecf3dd94106b545a7366153871a
+unix_socket_path: /home/sovol/printer_data/comms/moonraker.sock
+software_version: v0.9.2-6-gf735c04
+git_branch: master
+git_remote: origin
+git_repo_url: https://github.com/Arksine/moonraker.git
+modified_files: []
+unofficial_components: []
+log_file: /home/sovol/printer_data/logs/moonraker.log
+python_version: 3.9.2 (default, Feb 28 2021, 17:03:44)  [GCC 10.2.1 20210110]
+launch_args: /home/sovol/moonraker-env/bin/python /home/sovol/moonraker/moonraker/moonraker.py -d /home/sovol/printer_data
+msgspec_enabled: False
+uvloop_enabled: False
+
+#################### Moonraker Configuration ####################
+
+[server]
+host = 0.0.0.0
+port = 7125
+klippy_uds_address = /home/sovol/printer_data/comms/klippy.sock
+
+[authorization]
+trusted_clients = 
+	172.17.0.0/16
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+cors_domains = 
+	*.lan
+	*.local
+	*://localhost
+	*://localhost:*
+	*://my.mainsail.xyz
+	*://app.fluidd.xyz
+
+[octoprint_compat]
+
+[history]
+
+[timelapse]
+output_path = ~/printer_data/timelapse/
+frame_path = /tmp/timelapse/printer
+autorender = False
+
+[update_manager]
+channel = dev
+refresh_interval = 168
+
+[update_manager mainsail-config]
+type = git_repo
+primary_branch = master
+path = ~/mainsail-config
+origin = https://github.com/mainsail-crew/mainsail-config.git
+managed_services = klipper
+
+[update_manager mainsail]
+type = web
+channel = stable
+repo = mainsail-crew/mainsail
+path = ~/mainsail
+
+[update_manager moonraker-telegram-bot]
+type = git_repo
+path = ~/moonraker-telegram-bot
+origin = https://github.com/nlef/moonraker-telegram-bot.git
+env = ~/moonraker-telegram-bot-env/bin/python
+requirements = scripts/requirements.txt
+install_script = scripts/install.sh
+
+[update_manager moonraker-obico]
+type = git_repo
+path = /home/sovol/moonraker-obico
+origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
+env = /home/sovol/moonraker-obico/../moonraker-obico-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	moonraker-obico
+
+[update_manager mobileraker]
+type = git_repo
+path = /home/sovol/mobileraker_companion
+origin = https://github.com/Clon1998/mobileraker_companion.git
+primary_branch = main
+managed_services = mobileraker
+env = /home/sovol/mobileraker-env/bin/python
+requirements = scripts/mobileraker-requirements.txt
+install_script = scripts/install.sh
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
+
+[spoolman]
+server = http://192.168.1.23:7912
+
+[update_manager Spoolman]
+type = zip
+channel = stable
+repo = Donkie/Spoolman
+path = /home/sovol/Spoolman
+virtualenv = .venv
+requirements = requirements.txt
+persistent_files = 
+	.venv
+	.env
+managed_services = Spoolman
+
+#################################################################
+All Configuration Files:
+/home/sovol/printer_data/config/moonraker.conf
+/home/sovol/printer_data/config/moonraker-obico-update.cfg
+#################################################################
+Loading Sqlite database provider. Sqlite Version: 3.34.1
+Unsafe Shutdown Count: 8
+
+System Info:
+
+***python***
+  version: (3, 9, 2, 'final', 0)
+  version_string: 3.9.2 (default, Feb 28 2021, 17:03:44)  [GCC 10.2.1 20210110]
+
+***cpu_info***
+  cpu_count: 4
+  bits: 64bit
+  processor: aarch64
+  cpu_desc: 
+  serial_number: 
+  hardware_desc: 
+  model: 
+  total_memory: 1010632
+  memory_units: kB
+
+***sd_info***
+
+***distribution***
+  name: Debian GNU/Linux 11 (bullseye)
+  id: debian
+  version: 11
+  version_parts: {'major': '11', 'minor': '', 'build_number': ''}
+  like: 
+  codename: bullseye
+  release_info: {}
+  kernel_version: 5.16.17-sun50iw9
+
+***virtualization***
+  virt_type: none
+  virt_identifier: none
+
+***network***
+
+***canbus***
+
+***Allowed Services***
+  klipper_mcu
+  webcamd
+  MoonCord
+  KlipperScreen
+  moonraker-telegram-bot
+  moonraker-obico
+  sonar
+  crowsnest
+  octoeverywhere
+  ratos-configurator
+  mobilerakerSpoolman
+  mobileraker
+  Spoolman
+Module libcamera unavailble, import failed
+
+Systemd unit moonraker.service:
+unit_name: moonraker.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['-.mount', 'network-online.target', 'system.slice', 'sysinit.target']
+**After=['-.mount', 'sysinit.target', 'system.slice', 'basic.target', 'network-online.target', 'systemd-journald.socket']
+**SupplementaryGroups=['moonraker-admin']
+**EnvironmentFiles=/home/sovol/printer_data/systemd/moonraker.env
+**ExecStart=/home/sovol/moonraker-env/bin/python $MOONRAKER_ARGS
+**WorkingDirectory=/home/sovol/moonraker
+**FragmentPath=/etc/systemd/system/moonraker.service
+**Description=API Server for Klipper SV1
+**User=sovol
+
+Systemd unit klipper.service:
+unit_name: klipper.service
+is_default: True
+manager: systemd
+Properties:
+**Requires=['system.slice', 'sysinit.target', '-.mount']
+**After=['-.mount', 'klipper-mcu.service', 'sysinit.target', 'systemd-journald.socket', 'network-online.target', 'system.slice', 'basic.target']
+**SupplementaryGroups=[]
+**EnvironmentFiles=/home/sovol/printer_data/systemd/klipper.env
+**ExecStart=/home/sovol/klippy-env/bin/python $KLIPPER_ARGS
+**WorkingDirectory=/home/sovol/klipper
+**FragmentPath=/etc/systemd/system/klipper.service
+**Description=Klipper 3D Printer Firmware SV1
+**User=sovol
+Connected to Spoolman Spool Manager
+Git Repo moonraker: No warnings detected
+Git Repo klipper: Warnings detected:
+  Unofficial remote url: https://github.com/Sovol3d/klipper
+Git Repo mainsail-config: No warnings detected
+Git Repo fluidd-config: No warnings detected
+Git Repo moonraker-telegram-bot: No warnings detected
+Git Repo moonraker-obico: No warnings detected
+Git Repo mobileraker: No warnings detected
+Git Repo crowsnest: No warnings detected
+Klipper Version: v0.12.0-5-g6c1004f-dirty
+2024-09-04 00:16:33,128 [websockets.py:on_close()] - Websocket Closed: ID: 281473390500928 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.01
+2024-09-04 00:16:33,147 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.44ms
+2024-09-04 00:16:33,148 [websockets.py:open()] - Websocket Opened: ID: 281473389671520, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 00:16:33,170 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 00:42:47,661 [websockets.py:on_close()] - Websocket Closed: ID: 281473389671520 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.40
+2024-09-04 00:42:47,675 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.45ms
+2024-09-04 00:42:47,676 [websockets.py:open()] - Websocket Opened: ID: 281473390650944, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 00:42:47,719 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 00:49:25,591 [websockets.py:on_close()] - Websocket Closed: ID: 281473390650944 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.89
+2024-09-04 00:49:25,609 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.41ms
+2024-09-04 00:49:25,611 [websockets.py:open()] - Websocket Opened: ID: 281473390501024, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 00:49:25,634 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 00:53:06,155 [websockets.py:on_close()] - Websocket Closed: ID: 281473390501024 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.54
+2024-09-04 00:53:06,169 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.51ms
+2024-09-04 00:53:06,169 [websockets.py:open()] - Websocket Opened: ID: 281473370746832, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 00:53:06,192 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 01:29:04,605 [application.py:prepare()] - Upload Request Received from 127.0.0.1
+Content-Type: multipart/form-data; boundary=738947b9f617b2ca436529d6ea0d25d0
+2024-09-04 01:29:04,747 [application.py:post()] - Processing Uploaded File: altoid_micro_sd.gcode
+2024-09-04 01:29:05,315 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is disabled
+
+2024-09-04 01:29:05,527 [shell_command.py:_check_proc_success()] - Command (/home/sovol/moonraker-env/bin/python /home/sovol/moonraker/moonraker/components/file_manager/metadata.py -p /home/sovol/printer_data/gcodes -f "Obico_Upload/altoid_micro_sd.gcode") successfully finished
+2024-09-04 01:29:05,548 [application.py:log_request()] - 201 POST /server/files/upload (127.0.0.1) [_API_KEY_USER_] 945.35ms
+2024-09-04 01:29:05,841 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Obico_Upload/altoid_micro_sd.gcode
+2024-09-04 01:29:05,929 [job_state.py:_status_update()] - Job Started: Obico_Upload/altoid_micro_sd.gcode
+2024-09-04 01:45:21,516 [websockets.py:on_close()] - Websocket Closed: ID: 281473370746832 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.34
+2024-09-04 01:45:21,528 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.45ms
+2024-09-04 01:45:21,529 [websockets.py:open()] - Websocket Opened: ID: 281473370745680, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 01:45:21,544 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 02:48:23,172 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.67
+2024-09-04 03:13:52,137 [websockets.py:on_close()] - Websocket Closed: ID: 281473370745680 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.60
+2024-09-04 03:13:52,149 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.67
+2024-09-04 03:13:52,152 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.64ms
+2024-09-04 03:13:52,153 [websockets.py:open()] - Websocket Opened: ID: 281473371932464, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 03:13:52,184 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 03:48:40,186 [websockets.py:on_close()] - Websocket Closed: ID: 281473371932464 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.03
+2024-09-04 03:48:40,200 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.68ms
+2024-09-04 03:48:40,201 [websockets.py:open()] - Websocket Opened: ID: 281473371932512, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 03:48:40,219 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 03:48:41,456 [websockets.py:on_close()] - Websocket Closed: ID: 281473371932512 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.26
+2024-09-04 03:48:41,468 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.03ms
+2024-09-04 03:48:41,469 [websockets.py:open()] - Websocket Opened: ID: 281473390235168, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 03:48:41,484 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 03:53:30,444 [websockets.py:on_close()] - Websocket Closed: ID: 281473390235168 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.96
+2024-09-04 03:53:30,466 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.96ms
+2024-09-04 03:53:30,467 [websockets.py:open()] - Websocket Opened: ID: 281473390235408, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 03:53:30,728 [websockets.py:on_close()] - Websocket Closed: ID: 281473390235408 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.27
+2024-09-04 03:53:30,744 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.01ms
+2024-09-04 03:53:30,745 [websockets.py:open()] - Websocket Opened: ID: 281473390231952, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 03:53:30,769 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:03:12,307 [websockets.py:on_close()] - Websocket Closed: ID: 281473390231952 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.55
+2024-09-04 04:03:12,325 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.54ms
+2024-09-04 04:03:12,326 [websockets.py:open()] - Websocket Opened: ID: 281473389780896, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:03:12,449 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:03:56,762 [websockets.py:on_close()] - Websocket Closed: ID: 281473389780896 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.43
+2024-09-04 04:03:56,777 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.76ms
+2024-09-04 04:03:56,779 [websockets.py:open()] - Websocket Opened: ID: 281473389779600, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:03:56,796 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:11:13,077 [websockets.py:on_close()] - Websocket Closed: ID: 281473389779600 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.29
+2024-09-04 04:11:13,100 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.38ms
+2024-09-04 04:11:13,101 [websockets.py:open()] - Websocket Opened: ID: 281473371129024, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:11:13,121 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:12:38,041 [websockets.py:on_close()] - Websocket Closed: ID: 281473371110368 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 1.64
+2024-09-04 04:13:01,589 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.79ms
+2024-09-04 04:13:01,590 [websockets.py:open()] - Websocket Opened: ID: 281473390308128, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 04:13:01,622 [websockets.py:_handle_identify()] - Websocket 281473390308128 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 04:13:07,943 [websockets.py:on_close()] - Websocket Closed: ID: 281473390308128 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 6.36
+2024-09-04 04:22:00,451 [websockets.py:on_close()] - Websocket Closed: ID: 281473371129024 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.34
+2024-09-04 04:22:00,463 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.28ms
+2024-09-04 04:22:00,464 [websockets.py:open()] - Websocket Opened: ID: 281473371183520, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:22:00,490 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:27:33,230 [websockets.py:on_close()] - Websocket Closed: ID: 281473371183520 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.76
+2024-09-04 04:27:33,243 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.20ms
+2024-09-04 04:27:33,245 [websockets.py:open()] - Websocket Opened: ID: 281473371182800, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:27:33,261 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:32:49,045 [websockets.py:on_close()] - Websocket Closed: ID: 281473371182800 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.79
+2024-09-04 04:32:49,057 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.02ms
+2024-09-04 04:32:49,058 [websockets.py:open()] - Websocket Opened: ID: 281473390474480, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:32:49,074 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:34:35,994 [websockets.py:on_close()] - Websocket Closed: ID: 281473390474480 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.93
+2024-09-04 04:34:36,008 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.56ms
+2024-09-04 04:34:36,009 [websockets.py:open()] - Websocket Opened: ID: 281473390474960, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:34:36,025 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:36:09,703 [websockets.py:on_close()] - Websocket Closed: ID: 281473390474960 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.69
+2024-09-04 04:36:09,716 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.97ms
+2024-09-04 04:36:09,717 [websockets.py:open()] - Websocket Opened: ID: 281473390307072, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:36:09,741 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:41:12,060 [websockets.py:on_close()] - Websocket Closed: ID: 281473390307072 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.33
+2024-09-04 04:41:12,077 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.50ms
+2024-09-04 04:41:12,078 [websockets.py:open()] - Websocket Opened: ID: 281473389751792, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:41:12,095 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:43:38,911 [websockets.py:on_close()] - Websocket Closed: ID: 281473389751792 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.83
+2024-09-04 04:43:38,927 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.82ms
+2024-09-04 04:43:38,929 [websockets.py:open()] - Websocket Opened: ID: 281473389666704, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:43:38,951 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:44:09,505 [websockets.py:on_close()] - Websocket Closed: ID: 281473389666704 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.57
+2024-09-04 04:44:09,519 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.36ms
+2024-09-04 04:44:09,520 [websockets.py:open()] - Websocket Opened: ID: 281473389670064, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:44:09,539 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:44:10,605 [websockets.py:on_close()] - Websocket Closed: ID: 281473389670064 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.09
+2024-09-04 04:44:10,619 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.50ms
+2024-09-04 04:44:10,620 [websockets.py:open()] - Websocket Opened: ID: 281473370608016, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:44:10,637 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 04:59:00,061 [websockets.py:on_close()] - Websocket Closed: ID: 281473370608016 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.43
+2024-09-04 04:59:00,082 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.63ms
+2024-09-04 04:59:00,084 [websockets.py:open()] - Websocket Opened: ID: 281473390649888, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 04:59:00,106 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:01:09,705 [websockets.py:on_close()] - Websocket Closed: ID: 281473390649888 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.62
+2024-09-04 05:01:09,721 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.21ms
+2024-09-04 05:01:09,723 [websockets.py:open()] - Websocket Opened: ID: 281473390304656, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:01:09,743 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:03:36,475 [websockets.py:on_close()] - Websocket Closed: ID: 281473390304656 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.74
+2024-09-04 05:03:36,492 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.95ms
+2024-09-04 05:03:36,493 [websockets.py:open()] - Websocket Opened: ID: 281473371256288, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:03:36,516 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:03:37,613 [websockets.py:on_close()] - Websocket Closed: ID: 281473371256288 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.13
+2024-09-04 05:03:37,634 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.53ms
+2024-09-04 05:03:37,636 [websockets.py:open()] - Websocket Opened: ID: 281473371107392, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:03:37,663 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:06:51,572 [websockets.py:on_close()] - Websocket Closed: ID: 281473371107392 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.93
+2024-09-04 05:06:51,593 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.92ms
+2024-09-04 05:06:51,594 [websockets.py:open()] - Websocket Opened: ID: 281473389718160, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:06:51,609 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:09:10,098 [websockets.py:on_close()] - Websocket Closed: ID: 281473389718160 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.50
+2024-09-04 05:09:10,110 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.76ms
+2024-09-04 05:09:10,111 [websockets.py:open()] - Websocket Opened: ID: 281473389722160, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:09:10,132 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:11:52,419 [websockets.py:on_close()] - Websocket Closed: ID: 281473389722160 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.30
+2024-09-04 05:11:52,437 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.70ms
+2024-09-04 05:11:52,438 [websockets.py:open()] - Websocket Opened: ID: 281473371184960, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:11:52,461 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:11:53,611 [websockets.py:on_close()] - Websocket Closed: ID: 281473371184960 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.18
+2024-09-04 05:11:53,629 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.40ms
+2024-09-04 05:11:53,630 [websockets.py:open()] - Websocket Opened: ID: 281473389750976, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:11:53,646 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:13:47,631 [websockets.py:on_close()] - Websocket Closed: ID: 281473389750976 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.99
+2024-09-04 05:13:47,666 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.41ms
+2024-09-04 05:13:47,667 [websockets.py:open()] - Websocket Opened: ID: 281473389750256, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:13:47,680 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:15:40,170 [websockets.py:on_close()] - Websocket Closed: ID: 281473389750256 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.50
+2024-09-04 05:15:40,191 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.34ms
+2024-09-04 05:15:40,192 [websockets.py:open()] - Websocket Opened: ID: 281473389721440, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:15:40,211 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:15:41,225 [websockets.py:on_close()] - Websocket Closed: ID: 281473389721440 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.04
+2024-09-04 05:15:41,239 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.08ms
+2024-09-04 05:15:41,240 [websockets.py:open()] - Websocket Opened: ID: 281473390301632, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:15:41,257 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:18:46,136 [websockets.py:on_close()] - Websocket Closed: ID: 281473390301632 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.89
+2024-09-04 05:18:46,148 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.30ms
+2024-09-04 05:18:46,149 [websockets.py:open()] - Websocket Opened: ID: 281473389749296, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:18:46,168 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:20:39,968 [websockets.py:on_close()] - Websocket Closed: ID: 281473389749296 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.81
+2024-09-04 05:20:39,988 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.36ms
+2024-09-04 05:20:39,989 [websockets.py:open()] - Websocket Opened: ID: 281473389744336, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:20:40,021 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:22:22,829 [websockets.py:on_close()] - Websocket Closed: ID: 281473389744336 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.83
+2024-09-04 05:22:22,851 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.04ms
+2024-09-04 05:22:22,852 [websockets.py:open()] - Websocket Opened: ID: 281473390233440, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:22:22,869 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:23:56,996 [websockets.py:on_close()] - Websocket Closed: ID: 281473390233440 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.14
+2024-09-04 05:23:57,010 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.40ms
+2024-09-04 05:23:57,011 [websockets.py:open()] - Websocket Opened: ID: 281473390234400, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:23:57,029 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:25:31,228 [websockets.py:on_close()] - Websocket Closed: ID: 281473390234400 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.21
+2024-09-04 05:25:31,247 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.40ms
+2024-09-04 05:25:31,248 [websockets.py:open()] - Websocket Opened: ID: 281473372273296, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:25:31,268 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:26:56,504 [websockets.py:on_close()] - Websocket Closed: ID: 281473372273296 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.25
+2024-09-04 05:26:56,518 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.61ms
+2024-09-04 05:26:56,519 [websockets.py:open()] - Websocket Opened: ID: 281473390565360, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:26:56,545 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:26:57,611 [websockets.py:on_close()] - Websocket Closed: ID: 281473390565360 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.10
+2024-09-04 05:26:57,629 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.88ms
+2024-09-04 05:26:57,630 [websockets.py:open()] - Websocket Opened: ID: 281473390233824, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:26:57,648 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:28:39,099 [websockets.py:on_close()] - Websocket Closed: ID: 281473390233824 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.46
+2024-09-04 05:28:39,115 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.59ms
+2024-09-04 05:28:39,116 [websockets.py:open()] - Websocket Opened: ID: 281473389746928, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:28:39,136 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 05:30:27,002 [websockets.py:on_close()] - Websocket Closed: ID: 281473389746928 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.88
+2024-09-04 05:30:27,016 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.61ms
+2024-09-04 05:30:27,017 [websockets.py:open()] - Websocket Opened: ID: 281473390651376, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 05:30:27,033 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 06:33:23,296 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.67
+2024-09-04 13:45:04,660 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.67
+2024-09-04 13:45:04,664 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 8.06ms
+2024-09-04 13:45:04,666 [websockets.py:open()] - Websocket Opened: ID: 281473390502144, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 13:45:04,686 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 14:23:05,944 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.97ms
+2024-09-04 14:23:05,945 [websockets.py:open()] - Websocket Opened: ID: 281473370743088, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 14:23:05,970 [websockets.py:_handle_identify()] - Websocket 281473370743088 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 14:25:06,383 [websockets.py:on_close()] - Websocket Closed: ID: 281473370743088 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 0.43
+2024-09-04 14:46:51,449 [websockets.py:on_close()] - Websocket Closed: ID: 281473372295280 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.25
+2024-09-04 14:46:51,461 [websockets.py:on_close()] - Websocket Closed: ID: 281473390502144 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.79
+2024-09-04 14:46:51,474 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.02ms
+2024-09-04 14:46:51,475 [websockets.py:open()] - Websocket Opened: ID: 281473372298064, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 14:46:51,491 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 14:47:59,369 [websockets.py:on_close()] - Websocket Closed: ID: 281473372298064 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.89
+2024-09-04 14:47:59,382 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.03ms
+2024-09-04 14:47:59,383 [websockets.py:open()] - Websocket Opened: ID: 281473389744432, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 14:47:59,408 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 14:51:51,375 [websockets.py:on_close()] - Websocket Closed: ID: 281473389744432 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.98
+2024-09-04 14:51:51,390 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.45ms
+2024-09-04 14:51:51,391 [websockets.py:open()] - Websocket Opened: ID: 281473389747888, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 14:51:51,432 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:00:10,749 [websockets.py:on_close()] - Websocket Closed: ID: 281473389747888 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.35
+2024-09-04 15:00:10,762 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.81ms
+2024-09-04 15:00:10,764 [websockets.py:open()] - Websocket Opened: ID: 281473389746688, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:00:10,801 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:00:11,432 [websockets.py:on_close()] - Websocket Closed: ID: 281473390651376 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.41
+2024-09-04 15:00:11,443 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 3.85ms
+2024-09-04 15:00:11,444 [websockets.py:open()] - Websocket Opened: ID: 281473371120400, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:00:11,461 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:00:42,028 [websockets.py:on_close()] - Websocket Closed: ID: 281473389746688 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.25
+2024-09-04 15:00:42,039 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.38ms
+2024-09-04 15:00:42,040 [websockets.py:open()] - Websocket Opened: ID: 281473371257824, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:00:42,067 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:00:42,542 [websockets.py:on_close()] - Websocket Closed: ID: 281473371120400 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.09
+2024-09-04 15:00:42,553 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.35ms
+2024-09-04 15:00:42,554 [websockets.py:open()] - Websocket Opened: ID: 281473389649152, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:00:42,570 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:17:08,647 [websockets.py:on_close()] - Websocket Closed: ID: 281473371257824 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.60
+2024-09-04 15:17:08,660 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.39ms
+2024-09-04 15:17:08,661 [websockets.py:open()] - Websocket Opened: ID: 281473390820608, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:17:08,689 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:17:09,292 [websockets.py:on_close()] - Websocket Closed: ID: 281473390820608 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.64
+2024-09-04 15:17:09,313 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.56ms
+2024-09-04 15:17:09,314 [websockets.py:open()] - Websocket Opened: ID: 281473371086272, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:17:09,335 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:17:09,564 [websockets.py:on_close()] - Websocket Closed: ID: 281473389649152 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.00
+2024-09-04 15:17:09,576 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.43ms
+2024-09-04 15:17:09,577 [websockets.py:open()] - Websocket Opened: ID: 281473390230592, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:17:09,606 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:17:09,794 [websockets.py:on_close()] - Websocket Closed: ID: 281473390230592 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.22
+2024-09-04 15:17:09,808 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.61ms
+2024-09-04 15:17:09,809 [websockets.py:open()] - Websocket Opened: ID: 281473390228960, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:17:09,826 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:19:34,264 [websockets.py:on_close()] - Websocket Closed: ID: 281473371086272 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.95
+2024-09-04 15:19:34,280 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.00ms
+2024-09-04 15:19:34,281 [websockets.py:open()] - Websocket Opened: ID: 281473372977664, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:19:34,445 [websockets.py:on_close()] - Websocket Closed: ID: 281473390228960 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.63
+2024-09-04 15:19:34,455 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 3.77ms
+2024-09-04 15:19:34,456 [websockets.py:open()] - Websocket Opened: ID: 281473389912704, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:19:34,474 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:19:34,640 [websockets.py:on_close()] - Websocket Closed: ID: 281473389912704 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.19
+2024-09-04 15:19:34,650 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 3.81ms
+2024-09-04 15:19:34,651 [websockets.py:open()] - Websocket Opened: ID: 281473389915056, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:19:34,666 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:19:34,742 [websockets.py:on_close()] - Websocket Closed: ID: 281473372977664 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.47
+2024-09-04 15:19:34,757 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 3.64ms
+2024-09-04 15:19:34,758 [websockets.py:open()] - Websocket Opened: ID: 281473372977760, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:19:34,779 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:29:51,950 [websockets.py:on_close()] - Websocket Closed: ID: 281473372977760 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.18
+2024-09-04 15:29:51,972 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.94ms
+2024-09-04 15:29:51,973 [websockets.py:open()] - Websocket Opened: ID: 281473370714224, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:29:51,992 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:29:53,513 [websockets.py:on_close()] - Websocket Closed: ID: 281473389915056 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.86
+2024-09-04 15:29:53,528 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.04ms
+2024-09-04 15:29:53,529 [websockets.py:open()] - Websocket Opened: ID: 281473389912704, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:29:53,544 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:30:15,503 [websockets.py:on_close()] - Websocket Closed: ID: 281473370714224 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.52
+2024-09-04 15:30:15,524 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.43ms
+2024-09-04 15:30:15,525 [websockets.py:open()] - Websocket Opened: ID: 281473390565168, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:30:15,543 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:31:15,229 [websockets.py:on_close()] - Websocket Closed: ID: 281473390565168 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.70
+2024-09-04 15:31:15,247 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.59ms
+2024-09-04 15:31:15,248 [websockets.py:open()] - Websocket Opened: ID: 281473389913808, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:31:15,297 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:31:33,489 [websockets.py:on_close()] - Websocket Closed: ID: 281473389913808 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.24
+2024-09-04 15:31:33,501 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.50ms
+2024-09-04 15:31:33,502 [websockets.py:open()] - Websocket Opened: ID: 281473389746496, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:31:33,529 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:41:15,319 [websockets.py:on_close()] - Websocket Closed: ID: 281473389746496 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.81
+2024-09-04 15:41:15,348 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.42ms
+2024-09-04 15:41:15,350 [websockets.py:open()] - Websocket Opened: ID: 281473371110656, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:41:15,381 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:43:12,244 [websockets.py:on_close()] - Websocket Closed: ID: 281473371110656 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.89
+2024-09-04 15:43:12,260 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.38ms
+2024-09-04 15:43:12,260 [websockets.py:open()] - Websocket Opened: ID: 281473390797392, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:43:12,288 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:50:07,983 [websockets.py:on_close()] - Websocket Closed: ID: 281473390797392 Close Code: None, Close Reason: None, Pong Time Elapsed: 5.72
+2024-09-04 15:50:07,993 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.25ms
+2024-09-04 15:50:07,995 [websockets.py:open()] - Websocket Opened: ID: 281473371486240, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:50:08,020 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:50:45,204 [websockets.py:on_close()] - Websocket Closed: ID: 281473371486240 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.20
+2024-09-04 15:50:45,219 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.57ms
+2024-09-04 15:50:45,220 [websockets.py:open()] - Websocket Opened: ID: 281473371487920, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:50:45,240 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:50:45,773 [websockets.py:on_close()] - Websocket Closed: ID: 281473389912704 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.24
+2024-09-04 15:50:45,784 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.64ms
+2024-09-04 15:50:45,785 [websockets.py:open()] - Websocket Opened: ID: 281473372272192, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 15:50:45,801 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 15:51:47,642 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.50ms
+2024-09-04 15:51:47,643 [websockets.py:open()] - Websocket Opened: ID: 281473390504640, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 15:51:47,667 [websockets.py:_handle_identify()] - Websocket 281473390504640 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 16:01:34,768 [websockets.py:on_close()] - Websocket Closed: ID: 281473371487920 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.54
+2024-09-04 16:01:34,782 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.30ms
+2024-09-04 16:01:34,783 [websockets.py:open()] - Websocket Opened: ID: 281473371486288, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:01:34,801 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:02:02,665 [websockets.py:on_close()] - Websocket Closed: ID: 281473371486288 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.88
+2024-09-04 16:02:02,679 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.30ms
+2024-09-04 16:02:02,680 [websockets.py:open()] - Websocket Opened: ID: 281473389739264, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:02:02,711 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:12:04,397 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.58ms
+2024-09-04 16:12:04,398 [websockets.py:open()] - Websocket Opened: ID: 281473390334400, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 16:12:04,418 [websockets.py:_handle_identify()] - Websocket 281473390334400 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 16:12:10,941 [websockets.py:on_close()] - Websocket Closed: ID: 281473390334400 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 6.55
+2024-09-04 16:18:27,219 [websockets.py:on_close()] - Websocket Closed: ID: 281473389739264 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.53
+2024-09-04 16:18:27,231 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.14ms
+2024-09-04 16:18:27,232 [websockets.py:open()] - Websocket Opened: ID: 281473372983456, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:18:27,268 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:27:06,733 [websockets.py:on_close()] - Websocket Closed: ID: 281473372983456 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.50
+2024-09-04 16:27:06,751 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.51ms
+2024-09-04 16:27:06,752 [websockets.py:open()] - Websocket Opened: ID: 281473390797392, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:27:06,771 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:46:16,578 [websockets.py:on_close()] - Websocket Closed: ID: 281473390797392 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.82
+2024-09-04 16:46:16,592 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.82ms
+2024-09-04 16:46:16,593 [websockets.py:open()] - Websocket Opened: ID: 281473389739744, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:46:16,613 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:54:09,596 [websockets.py:on_close()] - Websocket Closed: ID: 281473389739744 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.99
+2024-09-04 16:54:09,611 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.22ms
+2024-09-04 16:54:09,612 [websockets.py:open()] - Websocket Opened: ID: 281473389747072, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:54:09,646 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 16:54:41,372 [websockets.py:on_close()] - Websocket Closed: ID: 281473389747072 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.75
+2024-09-04 16:54:41,386 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.90ms
+2024-09-04 16:54:41,387 [websockets.py:open()] - Websocket Opened: ID: 281473389779792, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 16:54:41,406 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:01:45,512 [websockets.py:on_close()] - Websocket Closed: ID: 281473390504640 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 7.86
+2024-09-04 17:04:43,695 [websockets.py:on_close()] - Websocket Closed: ID: 281473389779792 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.30
+2024-09-04 17:04:43,777 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 68.45ms
+2024-09-04 17:04:43,778 [websockets.py:open()] - Websocket Opened: ID: 281473389777632, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:04:43,806 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:15:21,880 [websockets.py:on_close()] - Websocket Closed: ID: 281473389777632 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.10
+2024-09-04 17:15:21,904 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.58ms
+2024-09-04 17:15:21,906 [websockets.py:open()] - Websocket Opened: ID: 281473389915104, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:15:21,922 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:42:10,482 [websockets.py:on_close()] - Websocket Closed: ID: 281473389915104 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.57
+2024-09-04 17:42:10,494 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.35ms
+2024-09-04 17:42:10,495 [websockets.py:open()] - Websocket Opened: ID: 281473389913520, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:42:10,519 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:56:23,269 [websockets.py:on_close()] - Websocket Closed: ID: 281473389913520 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.77
+2024-09-04 17:56:23,287 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.17ms
+2024-09-04 17:56:23,289 [websockets.py:open()] - Websocket Opened: ID: 281473390504784, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:56:23,314 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:56:23,760 [websockets.py:on_close()] - Websocket Closed: ID: 281473372272192 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.96
+2024-09-04 17:56:23,774 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 3.61ms
+2024-09-04 17:56:23,775 [websockets.py:open()] - Websocket Opened: ID: 281473390505312, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:56:23,788 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:57:14,089 [websockets.py:on_close()] - Websocket Closed: ID: 281473390504784 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.79
+2024-09-04 17:57:14,102 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.72ms
+2024-09-04 17:57:14,103 [websockets.py:open()] - Websocket Opened: ID: 281473390502864, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:57:14,132 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:57:14,610 [websockets.py:on_close()] - Websocket Closed: ID: 281473390505312 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.83
+2024-09-04 17:57:14,628 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.89ms
+2024-09-04 17:57:14,629 [websockets.py:open()] - Websocket Opened: ID: 281473370307744, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 17:57:14,646 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 17:59:15,861 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.55ms
+2024-09-04 17:59:15,862 [websockets.py:open()] - Websocket Opened: ID: 281473371085216, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 17:59:15,889 [websockets.py:_handle_identify()] - Websocket 281473371085216 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 18:01:45,370 [websockets.py:on_close()] - Websocket Closed: ID: 281473371085216 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 9.50
+2024-09-04 18:01:45,633 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.52ms
+2024-09-04 18:01:45,634 [websockets.py:open()] - Websocket Opened: ID: 281473390564976, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 18:01:45,642 [websockets.py:_handle_identify()] - Websocket 281473390564976 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 18:02:15,953 [websockets.py:on_close()] - Websocket Closed: ID: 281473390564976 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 0.31
+2024-09-04 18:02:16,237 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.17ms
+2024-09-04 18:02:16,238 [websockets.py:open()] - Websocket Opened: ID: 281473371085360, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 18:02:16,248 [websockets.py:_handle_identify()] - Websocket 281473371085360 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 18:03:49,815 [application.py:prepare()] - Upload Request Received from 127.0.0.1
+Content-Type: multipart/form-data; boundary=08f4a24106fa58b953631ba0a7ceec23
+2024-09-04 18:03:49,851 [application.py:post()] - Processing Uploaded File: sv08_101010.gcode
+2024-09-04 18:03:50,432 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is disabled
+
+2024-09-04 18:03:50,579 [shell_command.py:_check_proc_success()] - Command (/home/sovol/moonraker-env/bin/python /home/sovol/moonraker/moonraker/components/file_manager/metadata.py -p /home/sovol/printer_data/gcodes -f "Obico_Upload/sv08_101010.gcode") successfully finished
+2024-09-04 18:03:50,589 [application.py:log_request()] - 201 POST /server/files/upload (127.0.0.1) [_API_KEY_USER_] 776.16ms
+2024-09-04 18:03:50,919 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Obico_Upload/sv08_101010.gcode
+2024-09-04 18:03:51,004 [job_state.py:_status_update()] - Job Started: Obico_Upload/sv08_101010.gcode
+2024-09-04 18:04:19,692 [websockets.py:on_close()] - Websocket Closed: ID: 281473371085360 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 3.45
+2024-09-04 18:32:31,894 [websockets.py:on_close()] - Websocket Closed: ID: 281473390502864 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.78
+2024-09-04 18:32:31,911 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.50ms
+2024-09-04 18:32:31,912 [websockets.py:open()] - Websocket Opened: ID: 281473390502192, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:32:31,948 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:35:05,872 [websockets.py:on_close()] - Websocket Closed: ID: 281473370307744 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.24
+2024-09-04 18:35:05,886 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.93ms
+2024-09-04 18:35:05,887 [websockets.py:open()] - Websocket Opened: ID: 281473370305008, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:35:05,890 [websockets.py:on_close()] - Websocket Closed: ID: 281473390502192 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.97
+2024-09-04 18:35:05,904 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:35:05,966 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.39ms
+2024-09-04 18:35:05,967 [websockets.py:open()] - Websocket Opened: ID: 281473372271808, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:35:05,997 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:37:18,345 [websockets.py:on_close()] - Websocket Closed: ID: 281473372271808 Close Code: None, Close Reason: None, Pong Time Elapsed: 2.37
+2024-09-04 18:37:18,360 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.90ms
+2024-09-04 18:37:18,362 [websockets.py:open()] - Websocket Opened: ID: 281473389912224, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:37:18,384 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:42:22,559 [websockets.py:on_close()] - Websocket Closed: ID: 281473389912224 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.19
+2024-09-04 18:42:22,575 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.25ms
+2024-09-04 18:42:22,576 [websockets.py:open()] - Websocket Opened: ID: 281473389746544, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:42:22,592 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:42:56,991 [websockets.py:on_close()] - Websocket Closed: ID: 281473389746544 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.41
+2024-09-04 18:42:57,048 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.39ms
+2024-09-04 18:42:57,049 [websockets.py:open()] - Websocket Opened: ID: 281473370745728, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:42:57,088 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 18:47:57,785 [websockets.py:on_close()] - Websocket Closed: ID: 281473370745728 Close Code: None, Close Reason: None, Pong Time Elapsed: 0.73
+2024-09-04 18:47:57,807 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.32ms
+2024-09-04 18:47:57,808 [websockets.py:open()] - Websocket Opened: ID: 281473390228480, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 18:47:57,826 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:16:56,523 [websockets.py:on_close()] - Websocket Closed: ID: 281473390228480 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.71
+2024-09-04 19:16:56,544 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.32ms
+2024-09-04 19:16:56,544 [websockets.py:open()] - Websocket Opened: ID: 281473371120064, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:16:56,571 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:36:44,822 [websockets.py:on_close()] - Websocket Closed: ID: 281473371120064 Close Code: None, Close Reason: None, Pong Time Elapsed: 8.27
+2024-09-04 19:36:44,840 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 7.17ms
+2024-09-04 19:36:44,841 [websockets.py:open()] - Websocket Opened: ID: 281473371257200, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:36:44,870 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:44:22,224 [websockets.py:on_close()] - Websocket Closed: ID: 281473371257200 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.38
+2024-09-04 19:44:22,239 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.85ms
+2024-09-04 19:44:22,240 [websockets.py:open()] - Websocket Opened: ID: 281473390336800, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:44:22,258 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:44:33,996 [websockets.py:on_close()] - Websocket Closed: ID: 281473390336800 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.75
+2024-09-04 19:44:34,013 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.44ms
+2024-09-04 19:44:34,014 [websockets.py:open()] - Websocket Opened: ID: 281473371600592, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:44:34,045 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:44:41,989 [websockets.py:on_close()] - Websocket Closed: ID: 281473371600592 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.98
+2024-09-04 19:44:42,002 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.06ms
+2024-09-04 19:44:42,003 [websockets.py:open()] - Websocket Opened: ID: 281473390337472, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:44:42,030 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 19:45:21,986 [websockets.py:on_close()] - Websocket Closed: ID: 281473390337472 Close Code: None, Close Reason: None, Pong Time Elapsed: 9.97
+2024-09-04 19:45:22,000 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.49ms
+2024-09-04 19:45:22,001 [websockets.py:open()] - Websocket Opened: ID: 281473371160192, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 19:45:22,030 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 20:48:23,548 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.67
+2024-09-04 21:15:28,459 [websockets.py:on_close()] - Websocket Closed: ID: 281473371160192 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.44
+2024-09-04 21:15:28,472 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.67
+2024-09-04 21:15:28,475 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.15ms
+2024-09-04 21:15:28,476 [websockets.py:open()] - Websocket Opened: ID: 281473371108496, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 21:15:29,644 [websockets.py:on_close()] - Websocket Closed: ID: 281473371108496 Close Code: None, Close Reason: None, Pong Time Elapsed: 1.17
+2024-09-04 21:15:29,748 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.79ms
+2024-09-04 21:15:29,749 [websockets.py:open()] - Websocket Opened: ID: 281473371108448, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 21:15:29,763 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 21:26:23,012 [websockets.py:on_close()] - Websocket Closed: ID: 281473371108448 Close Code: None, Close Reason: None, Pong Time Elapsed: 3.26
+2024-09-04 21:26:23,028 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 5.17ms
+2024-09-04 21:26:23,029 [websockets.py:open()] - Websocket Opened: ID: 281473389778256, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 21:26:23,083 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 21:27:30,562 [websockets.py:on_close()] - Websocket Closed: ID: 281473389778256 Close Code: None, Close Reason: None, Pong Time Elapsed: 7.52
+2024-09-04 21:27:30,579 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.41ms
+2024-09-04 21:27:30,580 [websockets.py:open()] - Websocket Opened: ID: 281473389762928, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 21:27:30,600 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 22:08:55,303 [websockets.py:on_close()] - Websocket Closed: ID: 281473389762928 Close Code: None, Close Reason: None, Pong Time Elapsed: 4.72
+2024-09-04 22:08:55,315 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.39ms
+2024-09-04 22:08:55,316 [websockets.py:open()] - Websocket Opened: ID: 281473389761584, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 22:08:55,332 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 22:12:31,947 [websockets.py:on_close()] - Websocket Closed: ID: 281473389761584 Close Code: None, Close Reason: None, Pong Time Elapsed: 6.63
+2024-09-04 22:12:31,968 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 4.15ms
+2024-09-04 22:12:31,969 [websockets.py:open()] - Websocket Opened: ID: 281473389647424, Proxied: False, User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36, Host Name: 192.168.1.23
+2024-09-04 22:12:31,988 [file_manager.py:get_file_list()] - Updating File List <config>...
+2024-09-04 23:13:23,582 [authorization.py:_prune_conn_handler()] - Trusted Connection Expired, IP: 192.168.1.67
+2024-09-04 23:38:57,565 [authorization.py:_check_trusted_connection()] - Trusted Connection Detected, IP: 192.168.1.67
+2024-09-04 23:38:57,568 [application.py:log_request()] - 101 GET /websocket (192.168.1.67) [_TRUSTED_USER_] 6.26ms
+2024-09-04 23:38:57,570 [websockets.py:open()] - Websocket Opened: ID: 281473370306304, Proxied: False, User Agent: BBL-Slicer/v01.09.03.50 (dark) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.52, Host Name: 192.168.1.23
+2024-09-04 23:38:57,605 [websockets.py:_handle_identify()] - Websocket 281473370306304 Client Identified - Name: mainsail, Version: 2.12.0, Type: web
+2024-09-04 23:39:02,470 [websockets.py:on_close()] - Websocket Closed: ID: 281473370306304 Close Code: 1001, Close Reason: None, Pong Time Elapsed: 4.91
+2024-09-04 23:45:45,608 [application.py:prepare()] - Upload Request Received from 127.0.0.1
+Content-Type: multipart/form-data; boundary=ad8b0efa30d5f7c48248de182e2afa17
+2024-09-04 23:45:45,783 [application.py:post()] - Processing Uploaded File: SV06_Plus_Gantry_lvl_Holder_PLA_0.2_33m47s.gcode
+2024-09-04 23:45:46,421 [shell_command.py:pipe_data_received()] - INFO:metadata:Object Processing is disabled
+
+2024-09-04 23:45:46,652 [shell_command.py:_check_proc_success()] - Command (/home/sovol/moonraker-env/bin/python /home/sovol/moonraker/moonraker/components/file_manager/metadata.py -p /home/sovol/printer_data/gcodes -f "Obico_Upload/SV06_Plus_Gantry_lvl_Holder_PLA_0.2_33m47s.gcode") successfully finished
+2024-09-04 23:45:46,664 [application.py:log_request()] - 201 POST /server/files/upload (127.0.0.1) [_API_KEY_USER_] 1058.20ms
+2024-09-04 23:45:46,993 [klippy_apis.py:start_print()] - Requesting Job Start, filename = Obico_Upload/SV06_Plus_Gantry_lvl_Holder_PLA_0.2_33m47s.gcode
+2024-09-04 23:45:47,235 [job_state.py:_status_update()] - Job Started: Obico_Upload/SV06_Plus_Gantry_lvl_Holder_PLA_0.2_33m47s.gcode

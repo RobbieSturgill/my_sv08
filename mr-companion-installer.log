@@ -1,0 +1,309 @@
+2024-08-25 15:27:00.864280 [Info] - Starting Installer...
+2024-08-25 15:27:00.864453 [Debug] - Parsing install (bash) cmd line args.
+2024-08-25 15:27:00.865496 [Info] - Os Type Detected: PlatformType.DEBIAN
+2024-08-25 15:27:00.865591 [Debug] - Validating args
+2024-08-25 15:27:00.865926 [Debug] - Starting discovery.
+2024-08-25 15:27:00.866050 [Debug] - Discovery - Service Files
+2024-08-25 15:27:00.866479 [Debug] -  /etc/systemd/system/KlipperScreen.service
+2024-08-25 15:27:00.866641 [Debug] -  /etc/systemd/system/ModemManager.service
+2024-08-25 15:27:00.866728 [Debug] -  /etc/systemd/system/basic.target.wants
+2024-08-25 15:27:00.867071 [Debug] -    /etc/systemd/system/basic.target.wants/armbian-hardware-monitor.service
+2024-08-25 15:27:00.867234 [Debug] -    /etc/systemd/system/basic.target.wants/armbian-hardware-optimize.service
+2024-08-25 15:27:00.867319 [Debug] -  /etc/systemd/system/bluetooth.target.wants
+2024-08-25 15:27:00.867553 [Debug] -    /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+2024-08-25 15:27:00.867665 [Debug] -  /etc/systemd/system/crowsnest.service
+2024-08-25 15:27:00.867734 [Debug] -  /etc/systemd/system/dbus-fi.w1.wpa_supplicant1.service
+2024-08-25 15:27:00.867803 [Debug] -  /etc/systemd/system/dbus-org.bluez.service
+2024-08-25 15:27:00.867868 [Debug] -  /etc/systemd/system/dbus-org.freedesktop.Avahi.service
+2024-08-25 15:27:00.867930 [Debug] -  /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+2024-08-25 15:27:00.867992 [Debug] -  /etc/systemd/system/default.target
+2024-08-25 15:27:00.868057 [Debug] -  /etc/systemd/system/default.target.wants
+2024-08-25 15:27:00.868383 [Debug] -    /etc/systemd/system/default.target.wants/e2scrub_reap.service
+2024-08-25 15:27:00.868622 [Debug] -  /etc/systemd/system/getty.target.wants
+2024-08-25 15:27:00.868998 [Debug] -    /etc/systemd/system/getty.target.wants/getty@tty1.service
+2024-08-25 15:27:00.869201 [Debug] -  /etc/systemd/system/graphical.target.wants
+2024-08-25 15:27:00.869536 [Debug] -    /etc/systemd/system/graphical.target.wants/bootsplash-hide-when-booted.service
+2024-08-25 15:27:00.869730 [Debug] -  /etc/systemd/system/hostapd.service
+2024-08-25 15:27:00.869837 [Debug] -  /etc/systemd/system/klipper-mcu.service
+2024-08-25 15:27:00.869903 [Debug] -  /etc/systemd/system/klipper.service
+2024-08-25 15:27:00.869963 [Debug] -  /etc/systemd/system/logrotate.service
+2024-08-25 15:27:00.870023 [Debug] -  /etc/systemd/system/mainsail.service
+2024-08-25 15:27:00.870078 [Debug] -  /etc/systemd/system/moonraker-obico.service
+2024-08-25 15:27:00.870138 [Debug] -  /etc/systemd/system/moonraker-telegram-bot.service
+2024-08-25 15:27:00.870251 [Debug] -  /etc/systemd/system/moonraker.service
+2024-08-25 15:27:00.870319 [Debug] -  /etc/systemd/system/multi-user.target.wants
+2024-08-25 15:27:00.870632 [Debug] -    /etc/systemd/system/multi-user.target.wants/KlipperScreen.service
+2024-08-25 15:27:00.870753 [Debug] -    /etc/systemd/system/multi-user.target.wants/NetworkManager.service
+2024-08-25 15:27:00.870831 [Debug] -    /etc/systemd/system/multi-user.target.wants/auto_offset_z.service
+2024-08-25 15:27:00.871064 [Debug] -    /etc/systemd/system/multi-user.target.wants/avahi-daemon.service
+2024-08-25 15:27:00.871205 [Debug] -    /etc/systemd/system/multi-user.target.wants/cron.service
+2024-08-25 15:27:00.871279 [Debug] -    /etc/systemd/system/multi-user.target.wants/crowsnest.service
+2024-08-25 15:27:00.871342 [Debug] -    /etc/systemd/system/multi-user.target.wants/hdmi-audio.service
+2024-08-25 15:27:00.871414 [Debug] -    /etc/systemd/system/multi-user.target.wants/hostapd.service
+2024-08-25 15:27:00.871526 [Debug] -    /etc/systemd/system/multi-user.target.wants/janus.service
+2024-08-25 15:27:00.871594 [Debug] -    /etc/systemd/system/multi-user.target.wants/klipper-mcu.service
+2024-08-25 15:27:00.871658 [Debug] -    /etc/systemd/system/multi-user.target.wants/klipper.service
+2024-08-25 15:27:00.871722 [Debug] -    /etc/systemd/system/multi-user.target.wants/mainsail.service
+2024-08-25 15:27:00.871782 [Debug] -    /etc/systemd/system/multi-user.target.wants/moonraker-obico.service
+2024-08-25 15:27:00.871848 [Debug] -    /etc/systemd/system/multi-user.target.wants/moonraker-telegram-bot.service
+2024-08-25 15:27:00.871913 [Debug] -    /etc/systemd/system/multi-user.target.wants/moonraker.service
+2024-08-25 15:27:00.871975 [Debug] -    /etc/systemd/system/multi-user.target.wants/networking.service
+2024-08-25 15:27:00.872041 [Debug] -    /etc/systemd/system/multi-user.target.wants/ntp.service
+2024-08-25 15:27:00.872107 [Debug] -    /etc/systemd/system/multi-user.target.wants/remote-fs.target
+2024-08-25 15:27:00.872171 [Debug] -    /etc/systemd/system/multi-user.target.wants/rsync.service
+2024-08-25 15:27:00.872238 [Debug] -    /etc/systemd/system/multi-user.target.wants/ssh.service
+2024-08-25 15:27:00.872314 [Debug] -    /etc/systemd/system/multi-user.target.wants/syncfile.service
+2024-08-25 15:27:00.872386 [Debug] -    /etc/systemd/system/multi-user.target.wants/wpa_supplicant.service
+2024-08-25 15:27:00.872466 [Debug] -  /etc/systemd/system/network-online.target.wants
+2024-08-25 15:27:00.872738 [Debug] -    /etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service
+2024-08-25 15:27:00.872861 [Debug] -    /etc/systemd/system/network-online.target.wants/networking.service
+2024-08-25 15:27:00.872942 [Debug] -  /etc/systemd/system/sockets.target.wants
+2024-08-25 15:27:00.873169 [Debug] -    /etc/systemd/system/sockets.target.wants/avahi-daemon.socket
+2024-08-25 15:27:00.873299 [Debug] -  /etc/systemd/system/sshd.service
+2024-08-25 15:27:00.873412 [Debug] -  /etc/systemd/system/syncfile.service
+2024-08-25 15:27:00.873498 [Debug] -  /etc/systemd/system/sysinit.target.wants
+2024-08-25 15:27:00.873780 [Debug] -    /etc/systemd/system/sysinit.target.wants/armbian-zram-config.service
+2024-08-25 15:27:00.873925 [Debug] -    /etc/systemd/system/sysinit.target.wants/fake-hwclock.service
+2024-08-25 15:27:00.874005 [Debug] -    /etc/systemd/system/sysinit.target.wants/resolvconf.service
+2024-08-25 15:27:00.874072 [Debug] -    /etc/systemd/system/sysinit.target.wants/systemd-pstore.service
+2024-08-25 15:27:00.874144 [Debug] -  /etc/systemd/system/systemd-resolved.service.wants
+2024-08-25 15:27:00.875045 [Debug] -    /etc/systemd/system/systemd-resolved.service.wants/resolvconf-pull-resolved.path
+2024-08-25 15:27:00.875344 [Debug] -    /etc/systemd/system/systemd-resolved.service.wants/resolvconf-pull-resolved.service
+2024-08-25 15:27:00.875515 [Debug] -  /etc/systemd/system/timers.target.wants
+2024-08-25 15:27:00.875800 [Debug] -    /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer
+2024-08-25 15:27:00.875941 [Debug] -    /etc/systemd/system/timers.target.wants/apt-daily.timer
+2024-08-25 15:27:00.876043 [Debug] -    /etc/systemd/system/timers.target.wants/e2scrub_all.timer
+2024-08-25 15:27:00.876118 [Debug] -    /etc/systemd/system/timers.target.wants/fstrim.timer
+2024-08-25 15:27:00.876308 [Debug] - Discovery - Config Files In Home Path
+2024-08-25 15:27:01.155752 [Debug] -      /home/sovol/KlipperScreen/config/defaults.conf
+2024-08-25 15:27:01.155952 [Debug] -      /home/sovol/KlipperScreen/config/main_menu.conf
+2024-08-25 15:27:01.156032 [Debug] -      /home/sovol/KlipperScreen/config/move_menu.conf
+2024-08-25 15:27:01.156098 [Debug] -      /home/sovol/KlipperScreen/config/print_menu.conf
+2024-08-25 15:27:01.156162 [Debug] -      /home/sovol/KlipperScreen/config/splash_menu.conf
+2024-08-25 15:27:01.214729 [Debug] -      /home/sovol/KlipperScreen/styles/base.conf
+2024-08-25 15:27:01.218247 [Debug] -        /home/sovol/KlipperScreen/styles/colorized/style.conf
+2024-08-25 15:27:01.221816 [Debug] -        /home/sovol/KlipperScreen/styles/material-dark/style.conf
+2024-08-25 15:27:01.225213 [Debug] -        /home/sovol/KlipperScreen/styles/material-darker/style.conf
+2024-08-25 15:27:01.228718 [Debug] -        /home/sovol/KlipperScreen/styles/material-light/style.conf
+2024-08-25 15:27:01.232402 [Debug] -        /home/sovol/KlipperScreen/styles/z-bolt/style.conf
+2024-08-25 15:27:01.259445 [Debug] -    /home/sovol/fluidd-config/fluidd-moonraker-update.conf
+2024-08-25 15:27:01.281689 [Debug] -      /home/sovol/kiauh/resources/common_vars.conf
+2024-08-25 15:27:01.283516 [Debug] -      /home/sovol/kiauh/resources/moonraker.conf
+2024-08-25 15:27:01.285066 [Debug] -      /home/sovol/kiauh/resources/upstreams.conf
+2024-08-25 15:27:01.292124 [Debug] -            /home/sovol/kiauh-backups/configs/240825-1504/printer_data/config/moonraker.conf
+2024-08-25 15:27:01.294778 [Debug] -            /home/sovol/kiauh-backups/configs/240825-1508/printer_data/config/moonraker.conf
+2024-08-25 15:27:01.297963 [Debug] -            /home/sovol/kiauh-backups/configs/240825-1516/printer_data/config/moonraker.conf
+2024-08-25 15:27:01.299141 [Debug] -            /home/sovol/kiauh-backups/configs/240825-1525/printer_data/config/moonraker.conf
+2024-08-25 15:27:01.299881 [Debug] -            /home/sovol/kiauh-backups/configs/240825-1525/printer_data/config/telegram.conf
+2024-08-25 15:27:01.300759 [Debug] -      /home/sovol/kiauh-backups/nginx_cfg/240825-1504_common_vars.conf
+2024-08-25 15:27:01.301019 [Debug] -      /home/sovol/kiauh-backups/nginx_cfg/240825-1504_upstreams.conf
+2024-08-25 15:27:01.301214 [Debug] -      /home/sovol/kiauh-backups/nginx_cfg/240825-1508_common_vars.conf
+2024-08-25 15:27:01.301328 [Debug] -      /home/sovol/kiauh-backups/nginx_cfg/240825-1508_upstreams.conf
+2024-08-25 15:27:01.499401 [Debug] -    /home/sovol/mainsail-config/mainsail-moonraker-update.conf
+2024-08-25 15:27:01.538796 [Debug] -      /home/sovol/moonraker/docs/moonraker.conf
+2024-08-25 15:27:01.563294 [Debug] -          /home/sovol/moonraker/tests/assets/moonraker/base_server.conf
+2024-08-25 15:27:01.563448 [Debug] -          /home/sovol/moonraker/tests/assets/moonraker/base_server_ssl.conf
+2024-08-25 15:27:01.563539 [Debug] -          /home/sovol/moonraker/tests/assets/moonraker/invalid_config.conf
+2024-08-25 15:27:01.563687 [Debug] -          /home/sovol/moonraker/tests/assets/moonraker/supplemental.conf
+2024-08-25 15:27:01.563765 [Debug] -          /home/sovol/moonraker/tests/assets/moonraker/unparsed_server.conf
+2024-08-25 15:27:01.710980 [Debug] -      /home/sovol/moonraker-obico/include_cfgs/KlipperScreen.conf
+2024-08-25 15:27:01.767242 [Debug] -        /home/sovol/moonraker-telegram-bot/tests/resources/secrets.conf
+2024-08-25 15:27:01.767471 [Debug] -        /home/sovol/moonraker-telegram-bot/tests/resources/telegram.conf
+2024-08-25 15:27:01.767573 [Debug] -        /home/sovol/moonraker-telegram-bot/tests/resources/telegram_minimal.conf
+2024-08-25 15:27:01.767655 [Debug] -        /home/sovol/moonraker-telegram-bot/tests/resources/telegram_secrets.conf
+2024-08-25 15:27:01.822028 [Debug] -      /home/sovol/printer_data/config/moonraker.conf
+2024-08-25 15:27:01.822250 [Debug] -      /home/sovol/printer_data/config/telegram.conf
+2024-08-25 15:27:01.830206 [Debug] - Searching for moonraker config for /etc/systemd/system/moonraker-obico.service
+2024-08-25 15:27:01.830671 [Debug] - Moonraker config file not found for service file [/etc/systemd/system/moonraker-obico.service]
+2024-08-25 15:27:01.831020 [Debug] - #Systemd service file for moonraker-obico
+
+2024-08-25 15:27:01.831087 [Debug] - [Unit]
+
+2024-08-25 15:27:01.831104 [Debug] - Description=Moonraker-Obico
+
+2024-08-25 15:27:01.831121 [Debug] - After=network-online.target moonraker.service
+
+2024-08-25 15:27:01.831136 [Debug] - 
+
+2024-08-25 15:27:01.831154 [Debug] - [Install]
+
+2024-08-25 15:27:01.831171 [Debug] - WantedBy=multi-user.target
+
+2024-08-25 15:27:01.831186 [Debug] - 
+
+2024-08-25 15:27:01.831201 [Debug] - [Service]
+
+2024-08-25 15:27:01.831216 [Debug] - Type=simple
+
+2024-08-25 15:27:01.831232 [Debug] - User=sovol
+
+2024-08-25 15:27:01.831247 [Debug] - WorkingDirectory=/home/sovol/moonraker-obico
+
+2024-08-25 15:27:01.831262 [Debug] - ExecStart=/home/sovol/moonraker-obico/../moonraker-obico-env/bin/python3 -m moonraker_obico.app -c /home/sovol/printer_data/config/moonraker-obico.cfg
+
+2024-08-25 15:27:01.831279 [Debug] - Restart=always
+
+2024-08-25 15:27:01.831295 [Debug] - RestartSec=5
+
+2024-08-25 15:27:01.831365 [Debug] - Searching for moonraker config for /etc/systemd/system/moonraker-telegram-bot.service
+2024-08-25 15:27:01.832450 [Debug] - Moonraker config file not found for service file [/etc/systemd/system/moonraker-telegram-bot.service]
+2024-08-25 15:27:01.832821 [Debug] - [Unit]
+
+2024-08-25 15:27:01.832874 [Debug] - Description=Moonraker Telegram Bot SV1
+
+2024-08-25 15:27:01.832891 [Debug] - Documentation=https://github.com/nlef/moonraker-telegram-bot/wiki
+
+2024-08-25 15:27:01.832907 [Debug] - After=network-online.target
+
+2024-08-25 15:27:01.832923 [Debug] - 
+
+2024-08-25 15:27:01.832939 [Debug] - [Install]
+
+2024-08-25 15:27:01.832954 [Debug] - WantedBy=multi-user.target
+
+2024-08-25 15:27:01.832970 [Debug] - 
+
+2024-08-25 15:27:01.832986 [Debug] - [Service]
+
+2024-08-25 15:27:01.833001 [Debug] - Type=simple
+
+2024-08-25 15:27:01.833017 [Debug] - User=sovol
+
+2024-08-25 15:27:01.833032 [Debug] - WorkingDirectory=/home/sovol/moonraker-telegram-bot
+
+2024-08-25 15:27:01.833048 [Debug] - EnvironmentFile=/home/sovol/printer_data/systemd/moonraker-telegram-bot.env
+
+2024-08-25 15:27:01.833064 [Debug] - ExecStart=/home/sovol/moonraker-telegram-bot-env/bin/python $TELEGRAM_BOT_ARGS
+
+2024-08-25 15:27:01.833080 [Debug] - Restart=always
+
+2024-08-25 15:27:01.833095 [Debug] - RestartSec=10
+
+2024-08-25 15:27:01.833160 [Debug] - Searching for moonraker config for /etc/systemd/system/moonraker.service
+2024-08-25 15:27:01.833468 [Debug] - Found possible path line: EnvironmentFile=/home/sovol/printer_data/systemd/moonraker.env
+
+2024-08-25 15:27:01.833543 [Debug] - Parsed moonraker config path is [/home/sovol/printer_data/systemd/moonraker.env] - From env parse.
+2024-08-25 15:27:01.834578 [Debug] - Moonraker config found in /home/sovol/printer_data/config
+2024-08-25 15:27:01.834740 [Debug] - Moonraker service [/etc/systemd/system/moonraker.service] matched to [/home/sovol/printer_data/config/moonraker.conf]
+2024-08-25 15:27:01.835059 [Info] - Only one moonraker instance was found, so we are using it! [moonraker.service:/home/sovol/printer_data/config/moonraker.conf]
+2024-08-25 15:27:01.835339 [Info] - Starting configuration...
+2024-08-25 15:27:01.835426 [Debug] - Moonraker Service File Name: moonraker.service
+2024-08-25 15:27:01.835678 [Debug] - Printer data folder: /home/sovol/printer_data
+2024-08-25 15:27:01.839467 [Info] - Found moonraker port 7125 in config file.
+2024-08-25 15:27:01.839658 [Info] - Configured. Service File Path: /etc/systemd/system/mobileraker.service, Config Dir: /home/sovol/printer_data/config, Logs: /home/sovol/printer_data/logs
+2024-08-25 15:27:01.839790 [Info] - Starting Config Writer...
+2024-08-25 15:27:01.845173 [Debug] - Mobileraker Config Path: /home/sovol/printer_data/config/mobileraker.conf
+2024-08-25 15:27:01.845366 [Info] - Ensuring mobileraker config file exists and is setup correctly.
+2024-08-25 15:27:01.846271 [Info] - General section not found, creating it.
+2024-08-25 15:27:01.846629 [Warn] - Available Languages:
+2024-08-25 15:27:01.846857 [Info] -   1) de
+2024-08-25 15:27:01.847097 [Info] -   2) en
+2024-08-25 15:27:01.847216 [Info] -   3) fr
+2024-08-25 15:27:01.847318 [Info] -   4) hu
+2024-08-25 15:27:01.847398 [Info] -   5) uk
+2024-08-25 15:27:01.847469 [Info] -   6) ptbr
+2024-08-25 15:27:01.847546 [Info] -   7) zhhk
+2024-08-25 15:27:01.847617 [Info] -   8) zhcn
+2024-08-25 15:27:09.644181 [Info] - Selected language: en
+2024-08-25 15:27:09.644412 [Warn] - Note: The language selection can be changed in the mobileraker.conf file later.
+2024-08-25 15:27:09.644624 [Error] - Deprecation Warning: The selected language will only be used for app-versions below 2.7.1. For newer versions, the app will sync your mobile device language with the companion.
+2024-08-25 15:27:09.645597 [Warn] - No printer sections found in mobileraker.conf, adding a default one.
+2024-08-25 15:27:09.645771 [Warn] - Please verify the config settings are correct after the install is complete in the mobileraker.conf.
+2024-08-25 15:27:09.645916 [Info] - Note: If you have multiple printers, you will need to add them manually in the same file and format.
+2024-08-25 15:27:09.647426 [Debug] - Writing config section: general
+2024-08-25 15:27:09.648094 [Debug] - Writing Option: language: en
+2024-08-25 15:27:09.648208 [Debug] - Checking for helpers: general.language
+2024-08-25 15:27:09.648270 [Debug] - Writing helper: # !!! DEPRECATED. The app now syncs the app's language to the companion
+2024-08-25 15:27:09.648323 [Debug] - Writing helper: # one of the supported languages defined in i18n.py#languages (de,en,...)
+2024-08-25 15:27:09.648369 [Debug] - Writing helper: # !!! For users from the UK: entering 'uk' will resolve to Ukrainian language, not English. Use 'en' for English!
+2024-08-25 15:27:09.648415 [Debug] - Writing helper: # Default: en
+2024-08-25 15:27:09.648535 [Debug] - Writing Option: timezone: UTC
+2024-08-25 15:27:09.648600 [Debug] - Checking for helpers: general.timezone
+2024-08-25 15:27:09.648655 [Debug] - Writing helper: # The system's timezone e.g. Europe/Berlin for Berlin time or US/Central.
+2024-08-25 15:27:09.648706 [Debug] - Writing helper: # For more values see https://gist.github.com/heyalexej/8bf688fd67d7199be4a1682b3eec7568
+2024-08-25 15:27:09.648755 [Debug] - Writing helper: # Default: Tries to use system timezone
+2024-08-25 15:27:09.648802 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.648944 [Debug] - Writing Option: eta_format: %%d.%%m.%%Y, %%H:%%M:%%S
+2024-08-25 15:27:09.649022 [Debug] - Checking for helpers: general.eta_format
+2024-08-25 15:27:09.649076 [Debug] - Writing helper: # Format used for eta and adaptive_eta placeholder variables
+2024-08-25 15:27:09.649122 [Debug] - Writing helper: # For available options see https://strftime.org/
+2024-08-25 15:27:09.649168 [Debug] - Writing helper: # Note that you will have to escape the % char by using a 2nd one e.g.: %d/%m/%Y -> %%d/%%m/%%Y
+2024-08-25 15:27:09.649214 [Debug] - Writing helper: # Default: %%d.%%m.%%Y, %%H:%%M:%%S
+2024-08-25 15:27:09.649257 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.649370 [Debug] - Writing Option: include_snapshot: True
+2024-08-25 15:27:09.649427 [Debug] - Checking for helpers: general.include_snapshot
+2024-08-25 15:27:09.649475 [Debug] - Writing helper: # !! SUPPORTER ONLY - This feature requires beeing a supporter of Mobileraker as of now!
+2024-08-25 15:27:09.649521 [Debug] - Writing helper: # Include a snapshot of the webcam in any print status/progress update notifications
+2024-08-25 15:27:09.649566 [Debug] - Writing helper: # Default: True
+2024-08-25 15:27:09.649609 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.649704 [Debug] - Writing config section: printer default
+2024-08-25 15:27:09.649814 [Debug] - Writing Option: moonraker_uri: ws://127.0.0.1:7125/websocket
+2024-08-25 15:27:09.649872 [Debug] - Checking for helpers: printer.moonraker_uri
+2024-08-25 15:27:09.649921 [Debug] - Writing helper: # Define the uri to the moonraker instance.
+2024-08-25 15:27:09.649965 [Debug] - Writing helper: # Default value: ws://127.0.0.1:7125/websocket
+2024-08-25 15:27:09.650009 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.650099 [Debug] - Writing Option: moonraker_api_key: False
+2024-08-25 15:27:09.650152 [Debug] - Checking for helpers: printer.moonraker_api_key
+2024-08-25 15:27:09.650201 [Debug] - Writing helper: # Moonraker API key if force_logins or trusted clients is active!
+2024-08-25 15:27:09.650246 [Debug] - Writing helper: # Default value: False
+2024-08-25 15:27:09.650290 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.650377 [Debug] - Writing Option: snapshot_uri: http://127.0.0.1/webcam/?action=snapshot
+2024-08-25 15:27:09.650430 [Debug] - Checking for helpers: printer.snapshot_uri
+2024-08-25 15:27:09.650477 [Debug] - Writing helper: # !! SUPPORTER ONLY - This feature requires beeing a supporter of Mobileraker as of now!
+2024-08-25 15:27:09.650522 [Debug] - Writing helper: # The ABSOLUT url to the webcam, the companion should make a screenshot of.
+2024-08-25 15:27:09.650566 [Debug] - Writing helper: # Example MJPEG SnapShot url: http://192.168.178.135/webcam/?action=snapshot
+2024-08-25 15:27:09.650611 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.650698 [Debug] - Writing Option: snapshot_rotation: 0
+2024-08-25 15:27:09.650751 [Debug] - Checking for helpers: printer.snapshot_rotation
+2024-08-25 15:27:09.650796 [Debug] - Writing helper: # !! SUPPORTER ONLY - This feature requires beeing a supporter of Mobileraker as of now!
+2024-08-25 15:27:09.650841 [Debug] - Writing helper: # The rotation of the snapshot in degrees
+2024-08-25 15:27:09.650942 [Debug] - Writing helper: # Default value: 0
+2024-08-25 15:27:09.650992 [Debug] - Writing helper: # Valud Values: 0,90,180,270
+2024-08-25 15:27:09.651037 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.651135 [Debug] - Writing Option: ignore_filament_sensors: 
+2024-08-25 15:27:09.651189 [Debug] - Checking for helpers: printer.ignore_filament_sensors
+2024-08-25 15:27:09.651236 [Debug] - Writing helper: # Comma separated list of filament sensors to ignore, ignored filament sensors do not trigger
+2024-08-25 15:27:09.651283 [Debug] - Writing helper: # a notification if they are triggered. This is useful if you have a filament sensor that is used
+2024-08-25 15:27:09.651329 [Debug] - Writing helper: # in a MMU setup like ERCF.
+2024-08-25 15:27:09.651372 [Debug] - Writing helper: # IMPORTANT, do not include the sensor type. E.g. if your sensor is configured
+2024-08-25 15:27:09.651416 [Debug] - Writing helper: # like: [filament_switch_sensor printhead_sensor] add `printhead_sensor` to the list.
+2024-08-25 15:27:09.651508 [Debug] - Writing helper: # Default: empty
+2024-08-25 15:27:09.651554 [Debug] - Writing helper: # Optional
+2024-08-25 15:27:09.652211 [Info] - Wrote mobileraker config file to: /home/sovol/printer_data/config/mobileraker.conf
+2024-08-25 15:27:09.652763 [Info] - Config Writer Completed.
+2024-08-25 15:27:09.653281 [Debug] - Updating file ownership for [/home/sovol/mobileraker_companion] to [sovol]...
+2024-08-25 15:27:09.684803 [Debug] - Updating file ownership for [/home/sovol/printer_data/config/moonraker.conf] to [sovol]...
+2024-08-25 15:27:09.685688 [Debug] - Updating file ownership for [/home/sovol/printer_data/config/mobileraker.conf] to [sovol]...
+2024-08-25 15:27:09.686640 [Info] - Setting Up System Service...
+2024-08-25 15:27:09.687143 [Debug] - Service config file contents to write:     # Mobileraker Companion Service File
+    [Unit]
+    Description=Companion app to enable push notifications via mobileraker
+    # Start after network and moonraker has started.
+    After=network-online.target moonraker.service
+
+    [Install]
+    WantedBy=multi-user.target
+
+    # Simple service, targeting the user that was used to install the service, simply running our moonraker py host script.
+    [Service]
+    Type=simple
+    User=sovol
+    WorkingDirectory=/home/sovol/mobileraker_companion
+    ExecStart=/home/sovol/mobileraker-env/bin/python3 /home/sovol/mobileraker_companion/mobileraker.py -l /home/sovol/printer_data/logs -c /home/sovol/printer_data/config/mobileraker.conf
+    Restart=always
+    # Since we will only restart on a fatal Logger.Error, set the restart time to be a bit higher, so we don't spin and spam.
+    RestartSec=10
+
+2024-08-25 15:27:09.687418 [Info] - Creating service file /etc/systemd/system/mobileraker.service...
+2024-08-25 15:27:09.688412 [Info] - Registering service...
+2024-08-25 15:27:11.246987 [Debug] - RunShellCommand - systemctl enable mobileraker - return: 0; error - Created symlink /etc/systemd/system/multi-user.target.wants/mobileraker.service → /etc/systemd/system/mobileraker.service.
+
+2024-08-25 15:27:11.985814 [Debug] - RunShellCommand - systemctl daemon-reload - return: 0; error - 
+2024-08-25 15:27:11.986079 [Info] - Starting service...
+2024-08-25 15:27:12.024229 [Debug] - RunShellCommand - systemctl restart mobileraker.service - return: 0; error - 
+2024-08-25 15:27:12.024511 [Info] - Service setup and start complete!
+2024-08-25 15:27:12.024798 [Info] - Adding service to moonraker asv file...
+2024-08-25 15:27:12.028219 [Info] - Added service to moonraker asv file.
+2024-08-25 15:27:12.028857 [Info] -   ~~~ Mobileraker Companion installation Complete ~~~
+2024-08-25 15:27:12.029404 [Info] -                    Happy Printing!
+2024-08-25 15:27:12.029932 [Error] -                           <3
